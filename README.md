@@ -1,4 +1,4 @@
-# Code base analysis prompt
+# Codebase analysis prompt
 
 Analyse any code base using modern LLM coding agents, inspired by [DeepWiki](https://deepwiki.com).
 
@@ -9,11 +9,11 @@ Check out some examples of its output:
 
 ## Generic instructions
 
-1. Copy [`code_base_analysis_guidelines.md`](code_base_analysis_guidelines.md) into your project's _docs/_ folder.
+1. Copy [`codebase_analysis_guidelines.md`](codebase_analysis_guidelines.md) into your project's _docs/_ folder.
 2. Use your preferred LLM coding agent (Gemini, Claude, Copilot, etc.) to run the following prompt:
 
 ```markdown
-Read the guidelines in @docs/code_base_analysis_guidelines.md.
+Read the guidelines in @docs/codebase_analysis_guidelines.md.
 Run an analysis of this codebase.
 ```
 
@@ -61,7 +61,7 @@ GitHub Copilot offers a $10 per month plan. As of June 2025, GitHub Copilot offe
 The prompt has hints on what to do when updating the documentation. It should use Git logs to figure out what's changed recently. Try this:
 
 ```markdown
-Follow the guidelines in @docs/code_base_analysis_guidelines.md.
+Follow the guidelines in @docs/codebase_analysis_guidelines.md.
 Analyze this codebase. Only consider the files that have changed since 14 days ago.
 Update documents in @docs/architecture/.
 ```
@@ -71,7 +71,7 @@ Update documents in @docs/architecture/.
 Create a script to automate the update process. For example, using the Gemini CLI:
 
 ```sh
-gemini --model "gemini-2.5-flash" --prompt "Follow the guidelines in @docs/code_base_analysis_guidelines.md. Analyze this codebase. Only consider the files that have changed since 14 days ago. Update documents in @docs/architecture/."
+gemini --model "gemini-2.5-flash" --prompt "Follow the guidelines in @docs/codebase_analysis_guidelines.md. Analyze this codebase. Only consider the files that have changed since 14 days ago. Update documents in @docs/architecture/."
 ```
 
 A [GitHub Action](https://jasonet.co/posts/scheduled-actions/) can be used to schedule this script to run every 14 days.
@@ -106,7 +106,7 @@ Some work places only has approved webchat interfaces for LLMs. You can still us
 Need more details on a specific feature? Try:
 
 ```markdown
-Follow the guidelines in @docs/code_base_analysis_guidelines.md.
+Follow the guidelines in @docs/codebase_analysis_guidelines.md.
 Add FAQ question about response caching.
 ```
 
@@ -120,11 +120,11 @@ Elaborate on features in @docs/architecture/rate_limiting.md.
 
 ### Not committing the docs
 
-I think committing the _docs/architecture/_ and _code_base_analysis_guidelines.md_ is generally a good idea, but working with a team may mean you may want to keep them uncommitted.
+I think committing the _docs/architecture/_ and _codebase_analysis_guidelines.md_ is generally a good idea, but working with a team may mean you may want to keep them uncommitted.
 
 ```sh
 echo docs/architecture >> .git/info/exclude
-echo docs/code_base_analysis_guidelines.md >> .git/info/exclude
+echo docs/codebase_analysis_guidelines.md >> .git/info/exclude
 ```
 
 ## Licence

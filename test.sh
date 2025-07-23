@@ -3,7 +3,7 @@ set -euo pipefail
 
 PROMPT="
 Consult @test.md.
-Evaluate the prompt in @code_base_analysis_guidelines.md.
+Evaluate the prompt in @codebase_analysis_guidelines.md.
 "
 
 if [[ "${1:-}" == "--help" || "${1:-}" == "-h" ]]; then
