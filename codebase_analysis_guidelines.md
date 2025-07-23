@@ -41,24 +41,22 @@ The main document can have:
   ```
   > This repository was last analyzed by <LLM coding agent name> (using <LLM model name if available>) on <date>.
   ```
-- Overview - A quick summary
-- Architecture - a high-level description of the architecture, including key components and their interactions. Can have:
+- **Overview** (h2): A quick summary
+- **Architecture** (h2): a high-level description of the architecture, including key components and their interactions. Can have:
   - Component diagram (Mermaid)
-- Modules (h2) - a list of modules. Links to Markdown files of those modules. If more than 6 modules, group them by categories.
-- Data models (h2) - a list of the main data structures or models (that are not part of modules).
-  - Data model (h3) - one heading per data model. Each can have: Overview, schema, code examples
+- **Modules** (h2): a list of modules. Links to Markdown files of those modules. If more than 6 modules, group them by categories.
+- **Data models** (h2): a list of the main data structures or models (that are not part of modules).
+  - **Data model** (h3): one heading per data model. Each can have: Overview, schema, code examples
     - Citations
-- Features (h2) - a list of features (that are not part of other modules).
-  - Feature (h3) - one heading per feature. Each can have:
+- **Features** (h2): a list of features (that are not part of other modules).
+  - **Feature** (h3): one heading per feature. Each can have:
     - Component diagram(s)
     - Flowchart diagram(s)
     - Sequence diagram(s)
     - Call graph analysis
     - Code examples
     - Citations
-- Also see (h2) - any links, such as to other .md documents (like the development document, stories document, and FAQ), or external resources that are relevant to the codebase analysis.
-
-Feel free to add more sections if you find them relevant.
+- **Also see** (h2): any links, such as to other .md documents (like the development document, stories document, and FAQ), or external resources that are relevant to the codebase analysis.
 
 Ensure all other .md files are linked from the main document.
 
@@ -68,16 +66,16 @@ Consult "Examples" section below for examples.
 
 A module document can have:
 
-- Overview (h2) - A quick summary
-- Architecture (h2) - a high-level description of the architecture, including key components and their interactions. Can have:
+- **Overview** (h2): A quick summary
+- **Architecture** (h2): a high-level description of the architecture, including key components and their interactions. Can have:
   - Component diagram(s)
-- Consumers (h2) - a list of dependent modules or features that use on this module. List entry points of this module. Link to Markdown files of those modules if possible.
-- Dependencies (h2) - a list of depencency modules or features that this module depends on. Link to Markdown files of those modules if possible.
-- Data models (h2) - a list of the main data structures or models used in this module.
-  - Data model (h3) - one heading per data model. Each can have: Overview, schema, code examples
+- **Consumers** (h2): a list of dependent modules or features that use on this module. List entry points of this module. Link to Markdown files of those modules if possible.
+- **Dependencies** (h2): a list of depencency modules or features that this module depends on. Link to Markdown files of those modules if possible.
+- **Data models** (h2): a list of the main data structures or models used in this module.
+  - **Data model** (h3): one heading per data model. Each can have: Overview, schema, code examples
     - Citations
-- Features (h2) - a list of features (that are not part of modules).
-  - Feature (h3) - one heading per feature. Each can have:
+- **Features** (h2): a list of features (that are not part of modules).
+  - **Feature** (h3): one heading per feature. Each can have:
     - Component diagram(s)
     - Flowchart diagram(s)
     - Sequence diagram(s)
@@ -86,9 +84,7 @@ A module document can have:
     - Consumers
     - Dependencies
     - Citations
-- Relevant files (h2) - List of relevant files in the module, with links to their source code.
-
-Feel free to add more sections if you find them relevant.
+- **Relevant files** (h2): List of relevant files in the module, with links to their source code.
 
 Consult "Examples" section below for examples.
 
@@ -97,15 +93,15 @@ Consult "Examples" section below for examples.
 This document reverse-engineers the user requirements and product vision from the existing codebase. Suggested structure:
 
 - Overview paragraph explaining the reverse-engineering approach
-- Epics (h2) - high-level feature groupings with goals
-  - Epic (h3) - each epic should have a clear goal statement
-- User Stories (h2) - organized under epic subheadings
-  - Epic subheading (h3) - group stories by epic
-  - Story entries - use "As a [role], I want [goal]" format
-    - Include both end-user and developer perspectives
-    - Focus on observable functionality from the codebase
-    - Derive intent from implementation patterns
-    - Include "main entry points" to list down relevant code files and functions
+- **Epics** (h2): high-level feature groupings with goals
+  - **Epic** (h3): each epic should have a clear goal statement
+- **User Stories** (h2): organized under epic subheadings
+  - **Epic subheading** (h3): group stories by epic
+    - **Story entries**: use "As a [role], I want [goal]" format
+      - Include both end-user and developer perspectives
+      - Focus on observable functionality from the codebase
+      - Derive intent from implementation patterns
+      - Include "main entry points" to list down relevant code files and functions
 
 **Guidelines for stories:**
 
@@ -126,7 +122,7 @@ This document provides guidance for developers who want to contribute. Suggested
 - Code quality and testing
 - Build system
 
-Feel free to add more sections if you find them relevant.
+Consult "Examples" section below for examples.
 
 ### 2.5. FAQ document
 
@@ -136,6 +132,10 @@ Structure the answers in bullet points. Use brief, concise sentence fragments.
 See example below.
 
 ## 3. General guidance
+
+Documentation flexibility:
+
+- Feel free to add more sections if you find them relevant to any of the document types above.
 
 Analysis:
 
@@ -283,6 +283,7 @@ This document outlines the potential epics and user stories that may have guided
 ### Epic: Core Chat Functionality
 
 - **Story: Send and Display Messages**
+
   - As a user, I want to send messages to the AI and see its responses in a chat interface.
   - As a user, I want to see a clear history of my chat messages.
   - As a user, I want to see who sent each message (user, AI, other).
@@ -316,6 +317,7 @@ This document outlines the potential epics and user stories that may have guided
 ### Epic: Language Learning Features (LLM-powered)
 
 - **Story: Word Definition**
+
   - As a user, I want to get definitions for words or phrases using a command (e.g., `/define`).
   - As a user, I want to see comprehensive definitions including short definitions, etymology, examples, and related words.
   - Main entry points:
@@ -330,6 +332,7 @@ This document outlines the potential epics and user stories that may have guided
       - `enhanceDefinition()` - adds etymology and examples
 
 - **Story: Translation Support**
+
   - As a developer, I want to provide multi-language support for the chat interface.
   - As a user, I want to translate messages between languages using commands.
   - Main entry points:
