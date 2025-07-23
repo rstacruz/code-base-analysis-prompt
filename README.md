@@ -76,7 +76,7 @@ gemini --model "gemini-2.5-flash" --prompt "Follow the guidelines in @docs/codeb
 
 A [GitHub Action](https://jasonet.co/posts/scheduled-actions/) can be used to schedule this script to run every 14 days.
 
-## Use cases
+## Usage ideas
 
 It helps teams and individuals quickly assess code quality, architecture, and potential improvements by leveraging AI-powered code analysis tools. The guidelines and instructions here are designed to be agent-agnostic, making it easy to use with a variety of LLMs and coding environments.
 
@@ -92,6 +92,8 @@ Use it to help your LLM tools write PRD documents and design documents. Such as:
 Design a new "response caching" feature for this codebase.
 Consult @docs/architecture/ for details on the code base architecture.
 ```
+
+Try it with [spec-mode](https://github.com/rstacruz/spec-mode-prompt).
 
 ### Using on webchat
 
@@ -126,6 +128,10 @@ I think committing the _docs/architecture/_ and _codebase_analysis_guidelines.md
 echo docs/architecture >> .git/info/exclude
 echo docs/codebase_analysis_guidelines.md >> .git/info/exclude
 ```
+
+## Links
+
+- Also try [spec-mode](https://github.com/rstacruz/spec-mode-prompt).
 
 ## Licence
 
