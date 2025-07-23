@@ -1,5 +1,7 @@
 # Codebase analysis guidelines
 
+<!-- This prompt's source: https://github.com/rstacruz/codebase-analysis-prompt -->
+
 This repository contains codebase analysis documents in `docs/architecture/`.
 
 ## 1. Core task
