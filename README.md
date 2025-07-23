@@ -19,7 +19,7 @@ Run an analysis of this codebase.
 
 ### General advice
 
-- Use agent mode &mdash; Use an "agent" mode so the coding agent can run multiple requests and analyze the codebase in depth. This means tools like [Aider](https://aider.chat/).
+- Use agent mode &mdash; Use an "agent" mode so the coding agent can run multiple requests and analyze the codebase in depth. This means tools like [Aider](https://aider.chat/) may not be the best choice.
 - Use Gemini models &mdash; The Google Gemini models offer 1M context window. (In contrast, Sonnet 4 has 200K.) The Flash model is often good enough if "thinking" is enabled.
 - Avoid Copilot GPT-4.1 &mdash; I don't know, it just never got good results for me. It does have a 1M context window though.
 
@@ -54,6 +54,7 @@ GitHub Copilot offers a $10 per month plan. As of June 2025, GitHub Copilot offe
 1. Access Claude via your preferred interface (web, API, or CLI).
 2. Upload or point Claude to your codebase and the `code_base_analysis_guidelines.md` file.
 3. Follow "Generic instructions" above.
+4. (Optional) Create a [slash command](https://docs.anthropic.com/en/docs/claude-code/slash-commands) in `.claude/commands/analyze.md` with the contents of the prompt above.
 
 ## Keeping documentation up to date
 

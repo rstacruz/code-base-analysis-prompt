@@ -105,6 +105,7 @@ This document reverse-engineers the user requirements and product vision from th
     - Include both end-user and developer perspectives
     - Focus on observable functionality from the codebase
     - Derive intent from implementation patterns
+    - Include "main entry points" to list down relevant code files and functions
 
 **Guidelines for stories:**
 
@@ -285,15 +286,63 @@ This document outlines the potential epics and user stories that may have guided
   - As a user, I want to send messages to the AI and see its responses in a chat interface.
   - As a user, I want to see a clear history of my chat messages.
   - As a user, I want to see who sent each message (user, AI, other).
+  - Main entry points:
+    - `src/chat/message_handler.js`
+      - `sendMessage()` - handles outgoing message processing
+      - `receiveMessage()` - processes incoming AI responses
+    - `src/chat/ui.js`
+      - `displayMessage()` - renders messages in the chat interface
+      - `updateChatHistory()` - manages chat history display
+    - `src/components/ChatWindow.jsx`
+      - `ChatWindow` component - main chat interface container
+      - `MessageList` component - displays message history
+
 - **Story: Chat Management**
   - As a user, I want to clear the chat history.
   - As a user, I want my chat history to persist across sessions.
+  - As a user, I want to start new chat sessions.
+  - Main entry points:
+    - `src/storage/chat_storage.js`
+      - `saveChatSession()` - persists chat data to storage
+      - `loadChatHistory()` - retrieves previous chat sessions
+      - `clearChatHistory()` - removes chat data
+    - `src/chat/session_manager.js`
+      - `createNewSession()` - initializes new chat session
+      - `SessionManager` class - manages chat session lifecycle
+    - `src/components/ChatControls.jsx`
+      - `ClearChatButton` component - UI for clearing chat
+      - `NewSessionButton` component - starts new chat session
 
 ### Epic: Language Learning Features (LLM-powered)
 
 - **Story: Word Definition**
   - As a user, I want to get definitions for words or phrases using a command (e.g., `/define`).
   - As a user, I want to see comprehensive definitions including short definitions, etymology, examples, and related words.
+  - Main entry points:
+    - `src/commands/define_command.js`
+      - `DefineCommand` class - handles `/define` command processing
+      - `parseDefinition()` - extracts word from command
+    - `src/services/dictionary_service.js`
+      - `getDictionary()` - fetches word definitions from API
+      - `formatDefinition()` - structures definition response
+    - `src/ai/llm_processor.js`
+      - `processDefinitionRequest()` - sends definition requests to LLM
+      - `enhanceDefinition()` - adds etymology and examples
+
+- **Story: Translation Support**
+  - As a developer, I want to provide multi-language support for the chat interface.
+  - As a user, I want to translate messages between languages using commands.
+  - Main entry points:
+    - `src/i18n/translation_manager.js`
+      - `TranslationManager` class - manages language translations
+      - `translateText()` - handles text translation requests
+      - `detectLanguage()` - identifies source language
+    - `src/commands/translate_command.js`
+      - `TranslateCommand` class - processes `/translate` commands
+      - `parseTranslationRequest()` - extracts source and target languages
+    - `src/services/translation_api.js`
+      - `getTranslation()` - calls external translation service
+      - `cacheTranslation()` - stores translation results for reuse
 ```
 
 ### 4.6. "Frequently Asked Questions" example
