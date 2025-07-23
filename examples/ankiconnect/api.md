@@ -1,6 +1,3 @@
----
-createdAt: 2025-07-22T23:30:49+10:00
----
 # API Module
 
 ## Overview
@@ -26,12 +23,12 @@ When a request is received, the `handler` method in the `AnkiConnect` class dyna
 
 ## Consumers
 
-- **Web Server Module**: The web server is the primary consumer of this module. It forwards incoming HTTP requests to the `AnkiConnect.handler` method.
+-   **Web Server Module**: The web server is the primary consumer of this module. It forwards incoming HTTP requests to the `AnkiConnect.handler` method.
 
 ## Dependencies
 
-- **Anki Core**: This module heavily depends on the Anki toolkit API (`aqt` and `anki`) to interact with the user's collection.
-- **GUI Module**: The API module uses the GUI module to open custom dialogs like the enhanced note editor.
+-   **Anki Core**: This module heavily depends on the Anki toolkit API (`aqt` and `anki`) to interact with the user's collection.
+-   **GUI Module**: The API module uses the GUI module to open custom dialogs like the enhanced note editor.
 
 ## Features
 
@@ -45,7 +42,7 @@ This feature allows for the management of decks, including creation, deletion, a
 
 This feature enables the creation, modification, and deletion of notes. It also supports managing tags and fields associated with notes.
 
-**Citations:** `plugin/__init__.py:AnkiConnect.addNote`, `plugin/__init__.py:AnkiConnect.updateNoteFields`, `plugin/__init__.py:AnkiConnect.updateNoteTags`, `plugin/__init__.py:AnkiConnect.deleteNotes`
+**Citations:** `plugin/__init__.py:AnkiConnect.addNote`, `plugin/__init__.py:AnkiConnect.updateNoteFields`, `plugin/__init__.py:AnkiConnect.updateNoteTags`, `plugin/__init__.py:AnkiConnect.updateNoteModel`, `plugin/__init__.py:AnkiConnect.deleteNotes`
 
 ### Card Management
 
@@ -82,13 +79,31 @@ sequenceDiagram
     participant Anki
 
     C->>A: POST / with JSON payload (action: 'addNote', ...)
-    A->>A: handler(request)<br><span>plugin/__init__.py:AnkiConnect.handler</span>
-    A->>A: createNote(note)<br><span>plugin/__init__.py:AnkiConnect.createNote</span>
-    A->>Anki: collection.addNote(ankiNote)<br><span>plugin/__init__.py:AnkiConnect.addNote</span>
+    A->>A: handler(request)<br><span style="font-size:0.8em; font-style:italic">plugin/__init__.py:AnkiConnect.handler</span>
+    A->>A: createNote(note)<br><span style="font-size:0.8em; font-style:italic">plugin/__init__.py:AnkiConnect.createNote</span>
+    A->>Anki: collection.addNote(ankiNote)<br><span style="font-size:0.8em; font-style:italic">plugin/__init__.py:AnkiConnect.addNote</span>
     Anki-->>A: noteId
     A-->>C: {result: noteId, error: null}
 ```
 
 The `createNote` method first validates the input and creates an `anki.notes.Note` object. It then calls `collection.addNote` to add the note to the collection and returns the new note's ID.
+
+### Miscellaneous API
+
+This section covers general utility API calls, including version information, permission requests, profile management, and synchronization.
+
+**Citations:** `plugin/__init__.py:AnkiConnect.version`, `plugin/__init__.py:AnkiConnect.requestPermission`, `plugin/__init__.py:AnkiConnect.getProfiles`, `plugin/__init__.py:AnkiConnect.getActiveProfile`, `plugin/__init__.py:AnkiConnect.loadProfile`, `plugin/__init__.py:AnkiConnect.sync`, `plugin/__init__.py:AnkiConnect.multi`, `plugin/__init__.py:AnkiConnect.getNumCardsReviewedToday`, `plugin/__init__.py:AnkiConnect.getNumCardsReviewedByDay`, `plugin/__init__.py:AnkiConnect.getCollectionStatsHTML`
+
+### Tag Management
+
+This feature provides comprehensive functionality for managing tags associated with notes, including adding, removing, and replacing tags.
+
+**Citations:** `plugin/__init__.py:AnkiConnect.updateNoteTags`, `plugin/__init__.py:AnkiConnect.getNoteTags`, `plugin/__init__.py:AnkiConnect.addTags`, `plugin/__init__.py:AnkiConnect.removeTags`, `plugin/__init__.py:AnkiConnect.getTags`, `plugin/__init__.py:AnkiConnect.clearUnusedTags`, `plugin/__init__.py:AnkiConnect.replaceTags`, `plugin/__init__.py:AnkiConnect.replaceTagsInAllNotes`
+
+### Review and Scheduling
+
+This feature set allows for detailed control over card review and scheduling, including setting ease factors, suspending/unsuspending cards, and retrieving review statistics.
+
+**Citations:** `plugin/__init__.py:AnkiConnect.setEaseFactors`, `plugin/__init__.py:AnkiConnect.setSpecificValueOfCard`, `plugin/__init__.py:AnkiConnect.getEaseFactors`, `plugin/__init__.py:AnkiConnect.suspend`, `plugin/__init__.py:AnkiConnect.unsuspend`, `plugin/__init__.py:AnkiConnect.suspended`, `plugin/__init__.py:AnkiConnect.areSuspended`, `plugin/__init__.py:AnkiConnect.areDue`, `plugin/__init__.py:AnkiConnect.getIntervals`, `plugin/__init__.py:AnkiConnect.forgetCards`, `plugin/__init__.py:AnkiConnect.relearnCards`, `plugin/__init__.py:AnkiConnect.answerCards`, `plugin/__init__.py:AnkiConnect.cardReviews`, `plugin/__init__.py:AnkiConnect.getReviewsOfCards`, `plugin/__init__.py:AnkiConnect.setDueDate`, `plugin/__init__.py:AnkiConnect.reloadCollection`, `plugin/__init__.py:AnkiConnect.getLatestReviewID`, `plugin/__init__.py:AnkiConnect.insertReviews`
 
 Sources: `plugin/__init__.py`, `plugin/util.py`
