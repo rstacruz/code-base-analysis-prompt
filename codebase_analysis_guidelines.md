@@ -2,7 +2,7 @@
 
 <!-- This prompt's source: https://github.com/rstacruz/codebase-analysis-prompt -->
 
-This repository contains codebase analysis documents in `docs/architecture/`.
+This repository contains codebase analysis documents in `notes/architecture/`.
 
 ## 1. Core task
 
@@ -29,11 +29,11 @@ When asked by the user to **analyze a codebase**, follow these instructions.
 
 ## 2. Documentation structure
 
-- The main document: `docs/architecture/index.md` (required).
-- Module documents: `docs/architecture/<module>.md`.
-- Development document: `docs/architecture/development.md` (required).
-- Stories document: `docs/architecture/stories.md` (required).
-- FAQ document: `docs/architecture/faq.md` (required).
+- The main document: `notes/architecture/index.md` (required).
+- Module documents: `notes/architecture/<module>.md`.
+- Development document: `notes/architecture/development.md` (required).
+- Stories document: `notes/architecture/stories.md` (required).
+- FAQ document: `notes/architecture/faq.md` (required).
 
 ### 2.1. Main document
 
@@ -128,7 +128,7 @@ Consult "Examples" section below for examples.
 
 ### 2.5. FAQ document
 
-Come up with what might be frequently asked questions from @docs/architecture/ documents.
+Come up with what might be frequently asked questions from @notes/architecture/ documents.
 Link to Markdown files and headings in the answers.
 Structure the answers in bullet points. Use brief, concise sentence fragments.
 See example below.

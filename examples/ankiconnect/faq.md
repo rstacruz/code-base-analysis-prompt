@@ -79,4 +79,4 @@ This document provides answers to frequently asked questions about the AnkiConne
 -   Navigate to the project root and run `pytest`.
 -   See [Development Guide: Code Quality and Testing](development.md#code-quality-and-testing).
 
-Sources: `docs/architecture/architecture.md`, `docs/architecture/api.md`, `docs/architecture/web-server.md`, `docs/architecture/gui.md`, `docs/architecture/util.md`, `docs/architecture/development.md`
+Sources: `notes/architecture/architecture.md`, `notes/architecture/api.md`, `notes/architecture/web-server.md`, `notes/architecture/gui.md`, `notes/architecture/util.md`, `notes/architecture/development.md`
