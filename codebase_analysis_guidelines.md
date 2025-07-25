@@ -41,7 +41,7 @@ The main document can have:
 
 - Opening block quote before the Ovewview:
   ```
-  > This repository was last analyzed by <LLM coding agent name> (using <LLM model name if available>) on <date>.
+  > This repository was last analyzed by <LLM coding agent name> on <date>.
   ```
 - **Overview** (h2): A quick summary
 - **Architecture** (h2): a high-level description of the architecture, including key components and their interactions. Can have:

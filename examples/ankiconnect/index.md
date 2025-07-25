@@ -1,6 +1,6 @@
 # AnkiConnect Architecture
 
-> This repository was last analyzed by Gemini (using Gemini 2.5 Flash) on miércoles, 23 de julio de 2025.
+> This repository was last analyzed by Gemini on miércoles, 23 de julio de 2025.
 
 ## Overview
 
